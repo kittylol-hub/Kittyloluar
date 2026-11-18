@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>Kittylol — Script workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <a class="brand brand-large" href="#" aria-label="Kittylol home"><span class="brand-mark">K</span><span>kittylol<span class="brand-dot">.</span></span></a>
+      <div class="eyebrow">SCRIPT WORKSPACE <span class="live-dot"></span></div>
+      <h1>Mọi thứ của bạn.<br><span>Một nơi duy nhất.</span></h1>
+      <p class="login-copy">Quản lý script và theo dõi hoạt động trong một không gian tối giản, riêng tư.</p>
+      <button class="button discord-button" id="discordLogin"><span class="discord-icon">◉</span> Tiếp tục với Discord <span class="button-arrow">↗</span></button>
+      <p class="login-note">Bản xem trước giao diện · Discord OAuth chưa được kết nối</p>
+      <div class="login-foot"><span>AN TOÀN &amp; RIÊNG TƯ</span><span>© KITTYLOL 2026</span></div>
+    </div>
+    <div class="login-side"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="side-caption"><span class="live-dot"></span> YOUR WORKSPACE, IN REAL TIME</div><div class="side-quote">“Ít lộn xộn hơn.<br><em>Nhiều tập trung hơn.</em>”</div><div class="side-bottom"><span>01 — PRIVATE BY DEFAULT</span><span>BUILT FOR CREATORS</span></div></div>
+  </main>
+
+  <div id="app" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard"><span class="brand-mark">K</span><span>kittylol<span class="brand-dot">.</span></span></a>
+      <div class="workspace-label">WORKSPACE <span>⌄</span></div>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">◫</span> Tổng quan <span class="nav-shortcut">⌘ 1</span></button>
+        <button class="nav-item" data-view="scripts"><span class="nav-icon">⌘</span> Scripts <span class="nav-count" id="navScriptCount">0</span></button>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-status"><span class="live-dot"></span><span>Hệ thống hoạt động</span><span class="status-pulse"></span></div><button class="user-row" id="profileButton"><span class="avatar">K</span><span class="user-info"><b>kittylol user</b><small>Gói miễn phí</small></span><span class="more-dots">···</span></button></div>
+    </aside>
+
+    <section class="main-panel">
+      <header class="topbar"><div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><b id="currentCrumb">Tổng quan</b></div><div class="top-actions"><span class="top-live"><i class="live-dot"></i> LIVE</span><button class="icon-button" id="helpButton" aria-label="Thông tin">?</button><button class="avatar small-avatar">K</button></div></header>
+      <div class="page-content">
+        <section id="dashboardView" class="view">
+          <div class="page-heading"><div><div class="eyebrow">THỨ TƯ, 18 THÁNG 11, 2026 <span class="heading-line"></span></div><h1>Chào bạn <span class="wave">✳</span></h1><p>Đây là những gì đang diễn ra trong workspace của bạn.</p></div><button class="button button-primary" id="newScriptTop"><span>＋</span> Tạo script</button></div>
+          <div class="stat-grid">
+            <article class="stat-card"><div class="stat-head"><span>TỔNG SCRIPTS</span><span class="stat-icon">⌘</span></div><div class="stat-number" id="statScripts">00</div><div class="stat-foot"><span class="muted">Trong workspace</span><span class="stat-mark">↗</span></div><div class="stat-line"><i style="width:42%"></i></div></article>
+            <article class="stat-card"><div class="stat-head"><span>ĐANG CÔNG KHAI</span><span class="stat-icon">◉</span></div><div class="stat-number" id="statPublic">00</div><div class="stat-foot"><span class="muted">Có thể truy cập</span><span class="live-tag"><i class="live-dot"></i> LIVE</span></div><div class="stat-line"><i style="width:24%"></i></div></article>
+            <article class="stat-card"><div class="stat-head"><span>THỜI GIAN PHIÊN</span><span class="stat-icon">◷</span></div><div class="stat-number" id="sessionTime">00<span class="stat-unit">:00</span></div><div class="stat-foot"><span class="muted">Kể từ khi mở trang</span><span class="stat-mark">↗</span></div><div class="stat-line"><i style="width:63%"></i></div></article>
+            <article class="stat-card"><div class="stat-head"><span>TRẠNG THÁI</span><span class="stat-icon">⌁</span></div><div class="stat-number status-number"><span class="live-dot"></span>Ổn định</div><div class="stat-foot"><span class="muted">Workspace cá nhân</span><span class="stat-mark">✓</span></div><div class="stat-line"><i style="width:88%"></i></div></article>
+          </div>
+          <div class="section-heading"><div><div class="eyebrow">KHÔNG GIAN CỦA BẠN</div><h2>Scripts gần đây</h2></div><button class="text-button" id="viewAllScripts">Xem tất cả <span>→</span></button></div>
+          <div class="table-wrap"><table><thead><tr><th>TÊN SCRIPT</th><th>TRẠNG THÁI</th><th>CẬP NHẬT</th><th></th></tr></thead><tbody id="recentScripts"></tbody></table><div class="empty-state" id="dashboardEmpty"><div class="empty-glyph">⌘</div><h3>Workspace còn trống</h3><p>Tạo script đầu tiên để bắt đầu sắp xếp công việc của bạn.</p><button class="button button-secondary" id="emptyCreate">＋ Tạo script đầu tiên</button></div></div>
+          <div class="notice-bar"><span class="notice-icon">i</span><span><b>Bản demo giao diện.</b> Dữ liệu được lưu trên trình duyệt này; đăng nhập Discord và đồng bộ máy chủ chưa được cấu hình.</span><button id="dismissNotice" aria-label="Đóng">×</button></div>
+        </section>
+
+        <section id="scriptsView" class="view hidden">
+          <div class="page-heading"><div><div class="eyebrow">THƯ VIỆN CỦA BẠN <span class="heading-line"></span></div><h1>Scripts</h1><p>Tạo và quản lý các mục trong workspace.</p></div><button class="button button-primary" id="newScriptButton"><span>＋</span> Tạo script</button></div>
+          <div class="scripts-toolbar"><div class="search-box"><span>⌕</span><input id="scriptSearch" type="search" placeholder="Tìm script..." aria-label="Tìm script"></div><div class="filter-label">SẮP XẾP <span>GẦN ĐÂY ↓</span></div></div>
+          <div class="script-grid" id="scriptGrid"></div>
+          <div class="empty-state scripts-empty" id="scriptsEmpty"><div class="empty-glyph">⌘</div><h3>Chưa có script nào</h3><p>Các script bạn tạo sẽ xuất hiện ở đây.</p><button class="button button-secondary" id="scriptsEmptyCreate">＋ Tạo script đầu tiên</button></div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop hidden" id="scriptModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal modal-wide"><div class="modal-header"><div><div class="eyebrow">WORKSPACE / SCRIPTS</div><h2 id="modalTitle">Tạo script mới</h2></div><button class="icon-button close-modal" aria-label="Đóng">×</button></div><form id="scriptForm"><input type="hidden" id="editingId"><label class="field-label" for="scriptName">TÊN SCRIPT <span>*</span></label><input class="text-field" id="scriptName" maxlength="60" placeholder="Ví dụ: Tiện ích của tôi" required><label class="field-label" for="scriptNotes">GHI CHÚ <span class="optional">TÙY CHỌN</span></label><textarea class="text-field notes-field" id="scriptNotes" maxlength="240" placeholder="Mô tả ngắn về script..."></textarea><label class="field-label" for="scriptCode">NỘI DUNG SCRIPT</label><div class="code-editor"><div class="editor-gutter">01<br>02<br>03<br>04<br>05<br>06</div><textarea id="scriptCode" spellcheck="false" placeholder="Dán nội dung vào đây..." aria-label="Nội dung script"></textarea><div class="editor-language">TEXT</div></div><label class="upload-box" for="scriptFile"><span class="upload-icon">↑</span><span><b>Thêm file</b><small>Kéo thả hoặc chọn file từ thiết bị</small></span><span class="upload-action">CHỌN FILE</span><input type="file" id="scriptFile" hidden></label><div class="selected-file hidden" id="selectedFile"></div><div class="form-error hidden" id="formError"></div><div class="modal-footer"><span class="modal-hint"><span>⌑</span> Nội dung chỉ được lưu trong trình duyệt của bạn</span><div><button type="button" class="button button-secondary close-modal">Hủy</button><button type="submit" class="button button-primary"><span>＋</span> Tạo script</button></div></div></form></div></div>
+
+  <div class="modal-backdrop hidden" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><div class="modal detail-modal"><div class="modal-header"><div><div class="eyebrow">SCRIPT / CHI TIẾT</div><h2 id="detailTitle">Script</h2></div><button class="icon-button close-modal" aria-label="Đóng">×</button></div><p class="detail-notes" id="detailNotes"></p><div class="detail-meta"><span id="detailUpdated">VỪA CẬP NHẬT</span><span id="detailVisibility" class="visibility-badge">RIÊNG TƯ</span></div><div class="protected-panel"><div class="lock-icon">⌑</div><h3 id="protectedTitle">Script riêng tư</h3><p id="protectedMessage">Nội dung chỉ hiển thị với bạn trong bản demo này.</p><div class="protected-code" id="protectedCode"></div></div><div class="detail-actions" id="detailActions"></div><p class="security-note">Chế độ công khai chỉ tạo liên kết xem trước trong bản demo. Không có mã nào được thực thi hoặc tải lên máy chủ.</p></div></div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
